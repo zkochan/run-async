@@ -1,7 +1,4 @@
-'use strict';
-
-var isPromise = require('is-promise');
-var Promise = require('pinkie-promise')
+import isPromise from 'is-promise';
 
 /**
  * Return a function that will run a function asynchronously or synchronously
@@ -15,7 +12,7 @@ var Promise = require('pinkie-promise')
  *                                return a Promise (Node >= 0.12) or call the callbacks.
  */
 
-var runAsync = module.exports = function (func, cb) {
+export default function runAsync(func, cb) {
   cb = cb || function () {};
 
   return function () {

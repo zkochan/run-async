@@ -1,7 +1,5 @@
-'use strict';
-var Promise = require('pinkie-promise');
 var assert = require('assert');
-var runAsync = require('./index');
+import runAsync from './index';
 
 describe('runAsync', function () {
 
