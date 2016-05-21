@@ -2,9 +2,16 @@
   "name": "run-async",
   "version": "2.2.0",
   "description": "Utility method to run function either synchronously or asynchronously using the common `this.async()` style.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "jsnext:main": "index.js",
+  "files": [
+    "index.js",
+    "dist/"
+  ],
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "mocha --compilers js:babel-register -R spec",
+    "transpile": "babel index.js --out-dir dist",
+    "prepublish": "npm run transpile"
   },
   "repository": "SBoudrias/run-async",
   "keywords": [
@@ -15,10 +22,15 @@
   "author": "Simon Boudrias <admin@simonboudrias.com>",
   "license": "MIT",
   "dependencies": {
-    "is-promise": "^2.1.0",
-    "pinkie-promise": "^2.0.0"
+    "babel-runtime": "^6.9.0",
+    "is-promise": "^2.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
     "mocha": "^2.3.3"
   }
 }
